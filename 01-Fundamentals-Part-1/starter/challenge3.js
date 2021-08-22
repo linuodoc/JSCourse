@@ -160,7 +160,7 @@ function AvgScoreCal(Team1ScoreSet, Team2ScoreSet) {
 
 function checkComp(Team1avg, Team2avg) {
   if (Team1avg > Team2avg && Team1avg >= 100) {
-    console.log(`Dolphin (${Team1avg}) Won, Koala (${Team2avg}) lose`);
+    console.log(`Dolphin (${Team1avg}) Won, Koala (${Team2avg}) lose `);
   } else if (Team2avg > Team1avg && Team2avg >= 100) {
     console.log(`koala ${Team2avg} Won, Dolphin ${Team1avg} lose`);
   } else if (Team2avg === Team1avg && Team2avg >= 100 && Team1avg >= 100) {
