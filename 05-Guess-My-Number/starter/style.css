@@ -20,13 +20,14 @@ body {
 
 /* LAYOUT */
 header {
-  position: relative;
-  height: 35vh;
+  position: absolute;
+  height: 5vh;
   border-bottom: 7px solid #eee;
 }
 
 main {
-  height: 65vh;
+  position: relative;
+  height: 100vh;
   color: #eee;
   display: flex;
   align-items: center;
@@ -47,8 +48,8 @@ main {
 
 /* ELEMENTS STYLE */
 h1 {
-  font-size: 4rem;
-  text-align: center;
+  font-size: 2rem;
+  text-align: left;
   position: absolute;
   width: 100%;
   top: 52%;
@@ -95,25 +96,14 @@ h1 {
   margin-bottom: 3rem;
 }
 
-.btn {
-  border: none;
-  background-color: #eee;
-  color: #222;
-  font-size: 2rem;
-  font-family: inherit;
-  padding: 2rem 3rem;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #ccc;
-}
-
-.message {
-  margin-bottom: 8rem;
-  height: 3rem;
-}
-
-.label-score {
-  margin-bottom: 2rem;
+.textarea {
+  width: 200%;
+  height: 350px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
 }
