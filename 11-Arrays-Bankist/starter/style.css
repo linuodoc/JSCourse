@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #444;
   background-color: #f3f3f3;
   height: 100vh;
@@ -153,12 +153,31 @@ nav {
   font-weight: 500;
   color: #666;
 }
+.dogs__desc {
+  font-size: 1.1rem;
+  /* text-transform: uppercase; */
+  font-weight: 500;
+  color: rgb(92, 9, 9);
+  text-align: left;
+}
+.dogs__value {
+  font-size: 1.7rem;
+  margin-left: auto;
+}
 
 .movements__type--deposit {
   background-image: linear-gradient(to top left, #39b385, #9be15d);
 }
 
 .movements__type--withdrawal {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+.movements__type--puppy {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+
+.movements__type--adult {
   background-image: linear-gradient(to top left, #e52a5a, #ff585f);
 }
 
