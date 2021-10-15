@@ -44,7 +44,7 @@ let currentImage;
 const wait = function (seconds) {
   return new Promise(function (resolve) {
     setTimeout(resolve, seconds * 1000);
-  }).then(() => console.log('2 sec image loaded'));
+  }).then(() => console.log('2 sec image will load'));
 };
 
 const createImage = function (imgPath) {
@@ -104,38 +104,85 @@ Test data Part 2: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-
 
 GOOD LUCK 😀
  */
-
 const imgArr = [
   './img/img-1.jpg',
   './img/img-2.jpg',
   './img/img-3.jpg',
   './img/img-4.jpg',
 ];
-
-const loadNPause = async function (imgPath) {
+//PART1####################
+const loadNPause = async function () {
   try {
-    const img = await createImage(imgPath);
+    //load img1
+    let img = await createImage('./img/img-1.jpg');
     console.log(img);
+    await wait(2);
+    img.style.display = 'none';
+
+    //load img2
+    img = await createImage('./img/img-2.jpg');
+    console.log(img);
+    await wait(2);
+    img.style.display = 'none';
+
+    //load img3
+    img = await createImage('./img/img-3.jpg');
+    console.log(img);
+    await wait(2);
+    img.style.display = 'none';
   } catch (error) {
     console.error(err);
   }
 };
-// loadNPause('./img/img-1.jpg');
+// loadNPause();
 
-const loadAll = async function (imgArr) {
-  const images = imgArr.map(img => {
-    createImage(img);
-  });
-  Promise.all(images).then(img => console.log(img));
-  console.log(images);
+// const loadNPauseImgArray = function (imgArr) {
+//   let imgEl;
+//   // for(var i=0;i<imgArr.length;i++){
+//   imgArr.forEach(async img => {
+//     // console.log(img);
+//     imgEl = await createImage(img);
+//     console.log(imgEl);
+//     await wait(1);
+//     imgEl.style.display = 'none';
+//   });
+// };
+
+const loadNPauseArray = async function (imgArr) {
+  for (var i = 0; i < imgArr.length; i++) {
+    console.log(imgArr[i]);
+    const imgEl = await createImage(imgArr[i]);
+    console.log(imgEl);
+    await wait(2);
+    imgEl.style.display = 'none';
+  }
 };
-loadAll(imgArr);
+loadNPauseArray(imgArr);
 
-//     console.log(img);
-//     currentImage = img;
-//     return wait(2);
-//   })
-//   .then(() => {
-//     currentImage.style.display = 'none';
-//     return createImage('./img/img-3.jpg');
-//   })
+const loadNPauseImgArray = async function (imgArr) {
+  imgArr.forEach(async img => {
+    // console.log(img);
+    const imgEl = await createImage(img);
+    console.log(imgEl);
+    await wait(1);
+    imgEl.style.display = 'none';
+  });
+};
+// loadNPauseImgArray(imgArr);
+
+//PART2####################
+const loadAll = async function (imgArr) {
+  try {
+    // const images = imgArr.map(async img => await createImage(img));
+    const images = imgArr.map(img => createImage(img));
+    console.log(images);
+    const imgs = await Promise.all(images);
+    imgs.forEach(element => {
+      element.classList.add('parallel');
+    });
+    // console.log(imgs);
+  } catch (error) {
+    console.error(error);
+  }
+};
+// loadAll(imgArr);
